@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <title>Character List</title>
+</head>
+<body>
+<h1>Character List</h1>
+
+<div th:each="character : ${characters.results}">
+    <div>
+        <p><a th:href="@{'/character?id=' + ${character.id}}" th:text="${character.name}"></a></p>
+    </div>
+    <hr/>
+</div>
+
+<div>
+    <p>Page Info:</p>
+    <p>Characters: <span th:text="${characters.info.count}"></span></p>
+    <p>Page: <span th:text="${pageNumber} + '/' + ${characters.info.pages}"></span></p>
+    <p>Next:
+        <a th:if="${nextPage < 43}" th:href="@{'/characterList?page=' + ${nextPage}}">Next Page</a>
+        <span th:if="${pageNumber == 42}">No Next Page</span>
+    </p>
+
+    <p>Previous:
+        <a th:if="${pageNumber > 1}" th:href="@{'/characterList?page=' + ${prevPage}}">Previous Page</a>
+        <span th:if="${pageNumber == 1}">No Previous Page</span>
+    </p>
+
+</div>
+</body>
+</html>

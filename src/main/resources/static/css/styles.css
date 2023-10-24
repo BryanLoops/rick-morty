@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+label {
+    margin-top: 16px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+p.instruction {
+    font-size: 12px;
+    color: red;
+}

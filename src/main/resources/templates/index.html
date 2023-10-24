@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <title>Rick and Morty Character Viewer</title>
+</head>
+<body>
+<form id="searchOptions">
+    <label>
+        <input type="radio" name="searchOption" value="byId" checked> Search by ID
+    </label>
+    <label>
+        <input type="radio" name="searchOption" value="all"> Search for All
+    </label>
+</form>
+
+<form id="searchByIdForm" action="/character" method="get">
+    <label for="characterId">Enter Character ID:</label>
+    <p class="instruction">Insert a number between 1 and 826</p>
+    <input type="number" id="characterId" name="id" min="1" max="826" required>
+    <button type="submit">Submit</button>
+</form>
+
+<form id="searchAllForm" action="/characterList" method="get" style="display:none;">
+    <input type="number" id="pageNumber" name="page" disabled>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    document.getElementById('searchOptions').addEventListener('change', function() {
+        var searchOption = document.querySelector('input[name="searchOption"]:checked').value;
+        var pageNumberInput = document.getElementById('pageNumber');
+
+        if (searchOption === 'byId') {
+            document.getElementById('searchByIdForm').style.display = 'block';
+            document.getElementById('searchAllForm').style.display = 'none';
+            pageNumberInput.disabled = false;
+        } else {
+            document.getElementById('searchByIdForm').style.display = 'none';
+            document.getElementById('searchAllForm').style.display = 'block';
+            pageNumberInput.disabled = true;
+        }
+    });
+
+</script>
+</body>
+</html>

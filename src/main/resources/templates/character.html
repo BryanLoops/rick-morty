@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <title>Rick and Morty Character Details</title>
+</head>
+<body>
+<h1 th:text="${character.name}"></h1>
+<p th:text="'ID: ' + ${character.id}"></p>
+<p th:text="'Status: ' + ${character.status}"></p>
+<p th:text="'Species: ' + ${character.species}"></p>
+<p th:text="'Type: ' + ${character.type}"></p>
+<p th:text="'Gender: ' + ${character.gender}"></p>
+<p>
+    Origin: <a th:href="${character.origin.url}" th:text="${character.origin.name}"></a>
+</p>
+<p>
+    Location: <a th:href="${character.location.url}" th:text="${character.location.name}"></a>
+</p>
+<img th:src="${character.image}"/>
+<h2 th:text="'Episodes list: '"></h2>
+<ul>
+    <li th:each="episode : ${character.episodes}">
+        <a th:href="@{'https://rickandmortyapi.com/api/episode/' + ${episode}}" th:text="${episode}"></a>
+    </li>
+</ul>
+</body>
+</html>
