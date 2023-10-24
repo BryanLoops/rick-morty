@@ -1,7 +1,9 @@
 # rick-morty character list
 
-Um simples projeto usando Java Spring e thymeleaf para consumir a API: https://rickandmortyapi.com/documentation/#java.
+Um simples projeto usando Java Spring e thymeleaf para consumir a API: https://rickandmortyapi.com/documentation/#java. 
 Here's a simple project using Java Spring and thymeleaf to consume the API: https://rickandmortyapi.com/documentation/#java.
+
+*Esse projeto foi criado por Bryan Lopes, como parte dos desafios do programa AceleraDev, da empresa Stefanini.
 
 ## Instruções/Instructions
 
